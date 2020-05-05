@@ -1,0 +1,22 @@
+.thais{
+    border-radius: 16px;
+    border: 1px solid #ccc !important;
+    padding: 0.01em 16px;
+    margin: 1em;
+}
+.label-title{
+    color: slategrey;
+    font-size: 20px;
+    /* margin: 1em; */
+    text-align: center;
+    width: 100%;
+
+}
+
+.label-descricao{
+    /* width: 100%; */
+    text-align: center;
+    color: slategrey;
+    font-size: 18px;
+
+}

@@ -1,0 +1,66 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col-3 thais">
+            <form [formGroup]="novoForm" (ngSubmit)="onSubmit(novoForm.value)">
+                <label class="label-title" style="margin-left: 0em;">Novo Card</label>   
+                <br>
+                <input type="text" name="" formControlName="title" class="form-control" placeholder="Titulo">
+                <br>
+                <input type="text" name="" formControlName="desc" class="form-control" placeholder="Descricao">
+                
+                <label class="label-title" style="margin-left: 0em;"> checks </label>  
+                <br>
+                <form [formGroup]="novoItemForm" (ngSubmit)="onSubmitList(novoItemForm.value)">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" formControlName="ckeckList" aria-label="Checkbox for following text input">
+                                </div>
+                                </div>
+                                <input type="text" formControlName="descList" class="form-control" aria-label="Text input with checkbox">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button [disabled]="!novoItemForm.valid" class="btn btn-primary">Adicionar</button>
+                        </div>
+                    </div>
+                </form>
+                <div *ngFor="let item of listItem" class="col-12">
+                    <div class="col-12 row">
+                        <div class="col-4">
+                           <input type="checkbox" disabled [checked]="item.ckeckList" />
+                        </div>
+                        <div class="col-8">
+                            <label class="label-descricao">{{item.descList}}</label>
+                        </div>  
+                    </div>
+                </div>
+                <button [disabled]="!novoForm.valid" class="btn btn-success">adicionar</button>
+            </form>
+            <br>
+
+            <!-- <button (click)="excluir()">excluir</button> -->
+
+        </div>
+        <div *ngFor="let item of list" class="col-2 thais">
+            <label class="label-title">{{item.title}}</label>
+            <label class="label-descricao">{{item.desc}}</label>
+
+            <div *ngFor="let itens of item.list" class="row">
+                <div class="col-1">
+                    <input type="checkbox" disabled [checked]="itens.ckeckList" />
+                </div>
+                <div class="col-10">
+                    <label class="">{{itens.descList}}</label>
+                </div>  
+            </div>
+            <br>
+            <button (click)="excluirItem(item)" class="btn btn-danger">excluir</button>
+
+        </div>
+        
+    </div>
+    
+</div>
